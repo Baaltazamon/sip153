@@ -18,7 +18,7 @@ namespace sip153
             Console.WriteLine("Введите процент вклада");
             double percent = double.Parse(Console.ReadLine());
             double currentAmount = amount;
-            for (int i = 1; i < term; i++)
+            for (int i = 1; i <= term; i++)
             {
                 currentAmount +=  currentAmount / 100 * percent;
             }
