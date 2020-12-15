@@ -10,23 +10,26 @@ namespace sip153
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Программа вычисляет сумму вклада");
-            Console.WriteLine("Введите сумму вклада");
-            double amount = double.Parse(Console.ReadLine());
-            Console.WriteLine("Введите срок хранения");
-            double term = double.Parse(Console.ReadLine());
-            Console.WriteLine("Введите процент вклада");
-            double percent = double.Parse(Console.ReadLine());
-            double currentAmount = amount;
-            for (int i = 1; i <= term; i++)
+            string numb = Function.GenerateNumber();
+            int trying = 7;
+            //Console.WriteLine(numb);
+            string result;
+            do
             {
-                currentAmount +=  currentAmount / 100 * percent;
+                string g = Console.ReadLine();
+                result = Function.CheckAnswer(g, numb);
+                Console.WriteLine(result);
+                trying--;
+            } while (result != "БыкБыкБыкБык" && trying > 0);
+            if (trying == 0)
+            {
+                Console.WriteLine("Попытки закончились!");
             }
-
-            Console.WriteLine($"Итоговая сумма через {term} лет — {currentAmount}");
-
-
+            else
+                Console.WriteLine("Поздравляю");
             Console.ReadKey();
         }
+
+        
     }
 }
