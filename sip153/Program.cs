@@ -10,7 +10,12 @@ namespace sip153
     {
         static void Main(string[] args)
         {
-            string str = Console.ReadLine();
+            string str;
+            do
+            {
+                str = Console.ReadLine();
+            } while (string.IsNullOrEmpty(str));
+            
             
             Console.WriteLine(Function.ReverseText(str));
             Console.ReadKey();
