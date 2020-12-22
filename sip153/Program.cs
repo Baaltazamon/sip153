@@ -17,6 +17,8 @@ namespace sip153
             do
             {
                 string g = Console.ReadLine();
+                if (g.Length > 4)
+                    g = g.Substring(0, 4);
                 result = Function.CheckAnswer(g, numb);
                 Console.WriteLine(result);
                 trying--;

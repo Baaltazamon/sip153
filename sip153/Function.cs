@@ -28,14 +28,24 @@ namespace sip153
         static public string CheckAnswer(string c, string d)
         {
             string ans = "";
-            for (int i = 0; i < 4; i++)
+            if (string.IsNullOrEmpty(c))
+                return "";
+            try
             {
-                if (c[i] == d[i])
-                    ans += "Бык";
-                else if (d.Contains(c[i]))
-                    ans += "Корова";
+                for (int i = 0; i < 4; i++)
+                {
+                    if (c[i] == d[i])
+                        ans += "Бык";
+                    else if (d.Contains(c[i]))
+                        ans += "Корова";
+                }
+                return ans;
             }
-            return ans;
+            catch (IndexOutOfRangeException)
+            {
+                return "";
+            }
+            
         }
     }
 }
