@@ -9,60 +9,23 @@ namespace sip153
     static class Function
     {
         
-        static public string GenerateNumber()
+      public static string ReverseText(string str)
         {
-            Random rnd = new Random();
-            string number = "";
+            string y;
+            string z;
             int c;
-            for (int i = 0; i < 4; )
+            for (int i = 0; i < str.Length/2; i++)
             {
-                c = rnd.Next(1, 10);
-                if (!number.Contains(c.ToString()))
-                {
-                    number += c;
-                    i++;
-                }
+                
+                c = (str.Length - 1) - i;
+                y = str[c].ToString();
+                z = str[i].ToString();
+                str = str.Remove(i, 1);
+                str = str.Remove(c-1, 1);
+                str = str.Insert(c-1, z);
+                str = str.Insert(i, y);
             }
-            return number;
-        }
-
-        static public string GenerateNumber(int d)
-        {
-            Random rnd = new Random();
-            string number = "";
-            int c;
-            for (int i = 0; i < d;)
-            {
-                c = rnd.Next(1, 10);
-                if (!number.Contains(c.ToString()))
-                {
-                    number += c;
-                    i++;
-                }
-            }
-            return number;
-        }
-        static public string CheckAnswer(string c, string d)
-        {
-            string ans = "";
-            if (string.IsNullOrEmpty(c))
-                return "";
-            try
-            {
-                for (int i = 0; i < d.Length; i++)
-                {
-                    if (c[i] == d[i])
-                        ans += "Бык";
-                    else if (d.Contains(c[i]))
-                        ans += "Корова";
-                }
-                return ans;
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return "";
-            }
-            
+            return str;
         }
     }
 }
