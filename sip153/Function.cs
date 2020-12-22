@@ -8,6 +8,7 @@ namespace sip153
 {
     static class Function
     {
+        
         static public string GenerateNumber()
         {
             Random rnd = new Random();
@@ -25,6 +26,22 @@ namespace sip153
             return number;
         }
 
+        static public string GenerateNumber(int d)
+        {
+            Random rnd = new Random();
+            string number = "";
+            int c;
+            for (int i = 0; i < d;)
+            {
+                c = rnd.Next(1, 10);
+                if (!number.Contains(c.ToString()))
+                {
+                    number += c;
+                    i++;
+                }
+            }
+            return number;
+        }
         static public string CheckAnswer(string c, string d)
         {
             string ans = "";
@@ -32,7 +49,7 @@ namespace sip153
                 return "";
             try
             {
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < d.Length; i++)
                 {
                     if (c[i] == d[i])
                         ans += "Бык";

@@ -10,15 +10,15 @@ namespace sip153
     {
         static void Main(string[] args)
         {
-            string numb = Function.GenerateNumber();
+            string numb = Function.GenerateNumber(8);
             int trying = 7;
             //Console.WriteLine(numb);
             string result;
             do
             {
                 string g = Console.ReadLine();
-                if (g.Length > 4)
-                    g = g.Substring(0, 4);
+                if (g.Length > numb.Length)
+                    g = g.Substring(0, numb.Length);
                 result = Function.CheckAnswer(g, numb);
                 Console.WriteLine(result);
                 trying--;
